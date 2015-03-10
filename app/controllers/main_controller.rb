@@ -6,7 +6,6 @@ class MainController < ApplicationController
   end
 
   def register
-    scaffold :student
   end
 
   def aboutus

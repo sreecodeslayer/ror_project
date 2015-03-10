@@ -1,2 +1,92 @@
-<h1>Main#register</h1>
-<p>Find me in app/views/main/register.html.erb</p>
+<!-- <h1>Main#register</h1>
+<p>Find me in app/views/main/register.html.erb</p> -->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Register | College Of Engineering Trikaripur</title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tag %>
+
+</head>
+<body>
+<div class = "headerWrapper">
+  <a href= <%= main_index_url %> ><%=  image_tag('CETkr_logo_and_text.png', align: 'left') -%></a>
+  <div>
+    <ul id="pushRight">
+      <li><a class="shake" href= <%= main_index_path %> >Home</a></li>
+      <li><a class="shake" href= <%= main_login_path %> >Login</a></li>
+      <li><a class="shake" href= <%= main_register_path %> >Register</a></li>
+      <li><a class="shake" href= <%= main_aboutus_path %> >Contact Us</a></li>
+    </ul>
+  </div>
+</div>
+<div class = "register-content">
+  <h1>Student Registration</h1>
+  <form>
+    <div class="col-submit">
+      <%= image_tag('reg_100p.png',class:'cmn-t-scale')%>
+    </div>
+    <div class="col-2">
+      <%= label_tag :Name %>
+        <%= text_field_tag(:name,params[:name],placeholder:'What is your full name?',tabindex:'1') %>
+    </div>
+    <div class="col-2">
+      <%= label_tag :Semester %>
+        <%= select_tag( :Semester,
+                        "<option value='12'>I & II</option>
+                        <option value='3'>III</option>
+                        <option value='4'>IV</option>
+                        <option value='5'>V</option>
+                        <option value='6'>VI</option>
+                        <option value='7'>VII</option>
+                        <option value='8'>VII</option>".html_safe,id:'drop-font',tabindex:'2')%>
+    </div>
+
+    <div class="col-3">
+      <label>
+        University Roll Number
+        <input placeholder="What is your University Registration Number?" id="regnum" name="regnum" tabindex="3">
+      </label>
+    </div>
+    <div class="col-3">
+      <label>
+        Email
+        <input placeholder="What is your e-mail address?" id="email" name="email" tabindex="4">
+      </label>
+    </div>
+    <div class="col-3">
+      <label>
+        Branch of Study
+        <select tabindex="5">
+          <option>Computer Science</option>
+          <option>Information Technology</option>
+          <option>Electronics And Communication</option>
+          <option>Electrical And Electronics</option>
+          <option>Civil</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="col-4">
+      <label>
+        Skills
+        <input placeholder="List a few of your primary skills" id="skills" name="skills" tabindex="6">
+      </label>
+    </div>
+    <div class="col-4">
+      <label>
+        Yrs Experience
+        <input placeholder="How many years of experience?" id="experience" name="experience" tabindex="7">
+      </label>
+    </div>
+    <div class="col-submit">
+      <button class="submitbtn shake">Submit Form</button>
+    </div>
+
+  </form>
+</div>
+
+</body>
+</html>

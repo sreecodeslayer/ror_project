@@ -1,2 +1,29 @@
-<h1>Main#index</h1>
-<p>Find me in app/views/main/index.html.erb</p>
+<!-- <h1>Main#index</h1>
+<p>Find me in app/views/main/index.html.erb</p> -->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Home | College Of Engineering Trikaripur</title>
+  <link rel="stylesheet" type = text/css href = "assets/main.scss">
+ <!-- <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+  <link rel="stylesheet" type = text/css href = "CSS/animations.css"> -->
+  <link rel="shortcut icon" href="assets/login%20100p.png" type="image/x-icon" />
+</head>
+<body>
+<div class = "headerWrapper">
+  <a href= <%= main_index_url %> ><%=  image_tag('CETkr_logo_and_text.png', align: 'left') %></a>
+  <div>
+    <ul id="pushRight">
+      <li><a class="shake" href= <%= main_index_path %> >Home</a></li>
+      <li><a class="shake" href= <%= main_login_path %> >Login</a></li>
+      <li><a class="shake" href= <%= main_register_path %> >Register</a></li>
+      <li><a class="shake" href= <%= main_aboutus_path %> >Contact Us</a></li>
+    </ul>
+  </div>
+</div>
+<div class = "mainContent">
+
+</div>
+</body>
+</html>

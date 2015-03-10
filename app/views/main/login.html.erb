@@ -1,2 +1,55 @@
-<h1>Main#login</h1>
-<p>Find me in app/views/main/login.html.erb</p>
+<!-- <h1>Main#login</h1>
+<p>Find me in app/views/main/login.html.erb</p> -->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Login | College Of Engineering Trikaripur</title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= favicon_link_tag 'login.png', type:'image/png' %>
+  <%= csrf_meta_tag %>
+  <link rel="shortcut icon" href="assests/login.png" type="image/x-icon" />
+  <style type="text/css">
+      form{
+          margin-top: 30px;
+          margin-left: 530px;
+          margin-right: 530px;
+          color: #ebebeb;
+      }
+  </style>
+</head>
+<body>
+<div class = "headerWrapper">
+  <a href= <%= main_index_url %> ><%=  image_tag('CETkr_logo_and_text.png', align: 'left') %></a>
+  <div>
+    <ul id="pushRight">
+      <li><a class="shake" href= <%= main_index_path %> >Home</a></li>
+      <li><a class="shake" href= <%= main_login_path %> >Login</a></li>
+      <li><a class="shake" href= <%= main_register_path %> >Register</a></li>
+      <li><a class="shake" href= <%= main_aboutus_path %> >Contact Us</a></li>
+    </ul>
+  </div>
+</div>
+<div class = "login-content">
+  <h1>Log In</h1>
+  <form>
+    <div class="col-submit">
+      <%= image_tag('login_100p.png',class: 'cmn-t-scale')-%>
+    </div>
+    <div>
+      <%= label_tag :username %> <%= text_field_tag(:username, params[:username], class: 'cmn-t-scale', placeholder: 'Enter your username!') -%>
+    </div><br>
+    <div>
+      <%= label_tag :password %><%= password_field_tag(:password, params[:password], class: 'cmn-t-scale', placeholder: 'Enter your password!') -%>
+
+    </div><br>
+    <div class = col-submit >
+      <%= button_tag('Log in', class: 'loginbtn shake') %>
+    </div>
+
+  </form>
+
+</div>
+</body>
+</html>

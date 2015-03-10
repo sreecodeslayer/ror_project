@@ -11,3 +11,13 @@
 /log/*
 !/log/.keep
 /tmp
+
+.idea/workspace.xml
+*.iml
+.idea/vcs.xml
+.idea/runConfigurations/test__student_feedback.xml
+.idea/modules.xml
+*.xml
+.idea/.generators
+*.name
+.idea/.rakeTasks

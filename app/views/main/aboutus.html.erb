@@ -1,2 +1,30 @@
-<h1>Main#aboutus</h1>
-<p>Find me in app/views/main/aboutus.html.erb</p>
+<!-- <h1>Main#aboutus</h1>
+<p>Find me in app/views/main/aboutus.html.erb</p> -->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Contact Us | College Of Engineering Trikaripur</title>
+  <link rel="stylesheet" type = text/css href = "CSS/main.css">
+  <link rel="stylesheet" type = text/css href = "CSS/styles.css">
+  <link rel="stylesheet" type = text/css href = "CSS/animations.css">
+  <link rel="shortcut icon" href="Icons/login.png" type="image/x-icon" />
+</head>
+<body>
+<div class = "headerWrapper">
+  <a href= <%= main_index_url %> ><%=  image_tag('CETkr_logo_and_text.png', align: 'left') %></a>
+  <div>
+    <ul id="pushRight">
+      <li><a class="shake" href= <%= main_index_path %> >Home</a></li>
+      <li><a class="shake" href= <%= main_login_path %> >Login</a></li>
+      <li><a class="shake" href= <%= main_register_path %> >Register</a></li>
+      <li><a class="shake" href= <%= main_aboutus_path %> >Contact Us</a></li>
+    </ul>
+  </div>
+</div>
+<div class = "contact-content">
+  <h1>Contact Us</h1>
+</div>
+
+</body>
+</html>
