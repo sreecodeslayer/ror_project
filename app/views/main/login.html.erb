@@ -33,7 +33,9 @@
 </div>
 <div class = "login-content">
   <h1>Log In</h1>
-  <form>
+  <form method="POST">
+		<%= form_tag("/main/login", method: "post") do %>
+
     <div class="col-submit">
       <%= image_tag('login_100p.png',class: 'cmn-t-scale')-%>
     </div>
@@ -48,7 +50,7 @@
       <%= button_tag('Log in', class: 'loginbtn shake') %>
     </div>
 
-  </form>
+  <% end %>
 
 </div>
 </body>

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'admin/login'
 
+   post 'main/login'
+
   get 'admin/admin'
 
   get 'main/index'

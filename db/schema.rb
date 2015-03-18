@@ -14,27 +14,13 @@
 ActiveRecord::Schema.define(version: 20150310094831) do
 
   create_table "admins", force: :cascade do |t|
-    t.string   "name",       limit: 50, null: false
-    t.string   "email",      limit: 20, null: false
-    t.integer  "xp",         limit: 4,  null: false
-    t.string   "password",   limit: 10, null: false
-    t.integer  "phno",       limit: 4,  null: false
-    t.string   "branch",     limit: 5,  null: false
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "admins", ["email", "phno"], name: "email", unique: true, using: :btree
 
   create_table "students", force: :cascade do |t|
-    t.string   "name",       limit: 50, null: false
-    t.integer  "regnum",     limit: 4,  null: false
-    t.string   "sem",        limit: 5,  null: false
-    t.string   "password",   limit: 10, null: false
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "students", ["regnum"], name: "regnum", unique: true, using: :btree
 
 end

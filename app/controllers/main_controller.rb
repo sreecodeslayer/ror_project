@@ -3,6 +3,9 @@ class MainController < ApplicationController
   end
 
   def login
+	if request.post?
+		redirect_to admin_index_path
+	end
   end
 
   def register
