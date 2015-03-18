@@ -33,12 +33,12 @@
 </div>
 <div class = "login-content">
   <h1>Log In</h1>
-		<%= form_tag("/main/login", method: "post") do %>
+  <%= form_tag('', :method=>"post") do %>
     <div class="col-submit">
       <%= image_tag('login_100p.png',class: 'cmn-t-scale')-%>
     </div>
     <div>
-      <%= label_tag :username %> <%= text_field_tag(:username, params[:username], class: 'cmn-t-scale', placeholder: 'Enter your username!') -%>
+      <%= label_tag :username %><%= text_field_tag(:username, params[:username], class: 'cmn-t-scale', placeholder: 'Enter your username!') -%>
     </div><br>
     <div>
       <%= label_tag :password %><%= password_field_tag(:password, params[:password], class: 'cmn-t-scale', placeholder: 'Enter your password!') -%>
@@ -47,7 +47,6 @@
     <div class = col-submit >
       <%= button_tag('Log in', class: 'loginbtn shake') %>
     </div>
-
   <% end %>
 
 </div>
