@@ -23,7 +23,22 @@ br { display: block; line-height: 1.6em; }
 
 input, textarea { 
   -webkit-font-smoothing: antialiased;
-  outline: none; 
+  outline: none;
+  display: inline-block;
+  background-color: transparent;
+  position: relative;
+  width: 90%;
+  height: auto;
+  line-height: 27px;
+  margin: 0 20px 0;
+  padding: 7px 5px 3px;
+  border: none;
+  color: #555;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  opacity: .6;
+  transition: all linear .3s;
 }
 
 strong, b { font-weight: bold; }
@@ -74,35 +89,19 @@ form > div > .col-4 {
   height: 86px;
 }
 
-label > input[type=text] {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  height: 27px;
-  line-height: 27px;
-  margin: 5px -5px 0;
-  padding: 7px 5px 3px;
-  border: none;
-  outline: none;
-  color: #555;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-weight: bold;
-  font-size: 14px;
-  opacity: .6;
-  transition: all linear .3s;
-}
-
 .col-submit {
   text-align: center;
   padding: 20px;
 }
 
-label > select {
+select {
+  width: 90%;
+  height: auto;
+  line-height: 27px;
+  margin: 0 20px 0;
+  padding: 7px 5px 3px;
   display: block;
-  width: 100%;
-  padding: 0;
   color: #555;
-  margin: 16px 0 6px;
   font-weight: 500;
   background: transparent;
   border: none;
@@ -113,7 +112,7 @@ label > select {
   transition: all linear .3s;
 }
 
-label > input:focus, label > select:focus {
+input:focus,select:focus,option{
   opacity: 1;
 }
 

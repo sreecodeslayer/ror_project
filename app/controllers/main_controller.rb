@@ -6,11 +6,16 @@ class MainController < ApplicationController
     ip_username = params[:username]
     ip_password = params[:password]
     if request.post?
-      if Student.find_by name: ip_username,password: ip_password
+      if Student.find_by(name: ip_username,password: ip_password)
         @student = Student.new
         session[:user_id] = @student.id
-        flash[:notice[session[:user_id].to_s]]
+        flash[:notice] = 'Logged in as '+ session[:user_id].to_s
         redirect_to main_index_path
+      elsif Admin.find_by(name: ip_username,password: ip_password)
+        @admin = Admin.new
+        flash[:notice] = 'Logged in as Admin'
+        session[:user_id] = @admin.id
+        redirect_to admin_admin_path    
       else
         flash[:notice] = "Login not successful!"
         render

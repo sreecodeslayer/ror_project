@@ -51,13 +51,13 @@
 </head>
 <body>
 <div class = "headerWrapper">
-  <a href="Home.html"><img class="shake" src="assets/CETkr%20logo%20and%20text.png" align="left" ></a>
+<a href= <%= main_index_url %> ><%=  image_tag('CETkr_logo_and_text.png', align: 'left') %></a>
   <div>
     <ul id="pushRight">
-      <li><a class="shake" href="Home.html">Home</a></li>
-      <li><a class="shake" href="login.html">Login</a></li>
-      <li><a class="shake" href="Register.html">Register</a></li>
-      <li><a class="shake" href="Contact-us.html">Contact Us</a></li>
+      <li><a class="shake" href= <%= main_index_path %> >Home</a></li>
+      <li><a class="shake" href= <%= main_login_path %> >Login</a></li>
+      <li><a class="shake" href= <%= main_register_path %> >Register</a></li>
+      <li><a class="shake" href= <%= main_aboutus_path %> >Contact Us</a></li>
     </ul>
   </div>
 </div>
@@ -73,129 +73,121 @@
 
 <!-- Add Teacher div -->
 <div class = "register-content">
-  <form>
+  <%= form_tag(controller: "admin", action: "add_teacher", :method=>"post") do %>
     <div class="col-submit">
-      <img class="cmn-t-scale" src="Icons/reg%20100p.png">
-    </div>
+    <%= image_tag('reg_100p.png',class:'cmn-t-scale')%>    </div>
     <div class="col-2">
-      <label>
-        Name
-        <input placeholder="Name of the teacher?" id="name" name="name" tabindex="1">
-      </label>
-    </div>
+      <%= label_tag :'Name*' %>
+            <%= text_field_tag(:name,params[:name],placeholder:'What is your full name?',tabindex:'1') %>
+      </div>
     <div class="col-2">
-      <label>
-        Department
-        <select tabindex="2" class="drop-font">
-          <option value="CE">Dept. of Civil Engineering</option>
-          <option value="EC">Dept. of Electronics and Communication Engineering</option>
-          <option value="EE">Dept. of Electrical and Electronics Engineering</option>
-          <option value="CS">Dept. of Computer Science and Engineering</option>
-          <option value="IT">Dept. of Information Technology</option>
-          <option value="AS">Dept. of Applied Science</option>
-          <option value="ME">Dept. of Mechanical Engineering</option>
-        </select>
-      </label>
+      <%= label_tag :'Department*'%>
+        <%= select_tag( :department,
+          "<option value='CE'>Dept. of Civil Engineering</option>
+          <option value='EC'>Dept. of Electronics and Communication Engineering</option>
+          <option value='EE'>Dept. of Electrical and Electronics Engineering</option>
+          <option value='CS'>Dept. of Computer Science and Engineering</option>
+          <option value='IT'>Dept. of Information Technology</option>
+          <option value='AS'>Dept. of Applied Science</option>
+          <option value='ME'>Dept. of Mechanical Engineering</option>".html_safe,id:'drop-font',tabindex:'2')%>
     </div>
     <div class="col-3">
-      <label>
-        Subjects(code) allotted to the teacher
-        <textarea  cols = "39" placeholder="Each subject code separated by 'commas' eg. CS402,CS801" id="subs" name="name" tabindex="1"></textarea>
-      </label>
-    </div>
-
-    <div class="col-3">
-      <label>
-        Phone Number
-        <input placeholder="Phone number of the teacher" id="phnum" name="phnum" tabindex="3">
-      </label>
+      <%= label_tag :'Phone Number' %>
+          <%= text_field_tag(:phno,params[:phno],placeholder:'Please enter your Mobile number',tabindex:'4') %>
     </div>
     <div class="col-3">
-      <label>
-        Email
-        <input type="email" placeholder="Enter a valid e-mail?" id="email" name="email" tabindex="4">
-      </label>
-    </div>
-
-    <div class="col-3">
-      <label>
-        Skills
-        <input placeholder="List a few of your primary skills" id="skills" name="skills" tabindex="6">
-      </label>
+      <%= label_tag :email %>
+          <%= email_field_tag(:email,params[:email],placeholder:'Enter your e-mail address',id:'email',tabindex:'5')%>
     </div>
     <div class="col-4">
-      <label>
-        Years of Experience
-        <input placeholder="How many years of experience?" id="experience" name="experience" tabindex="7">
-      </label>
+      <%= label_tag :'Years of Experience' %>
+          <%= text_field_tag(:xp,params[:xp],placeholder:'How many years of experience?',id:'experience',tabindex:'6') %>
+    </div>
+    <div class="col-3">
+      <%= label_tag :'Subjects(code) allotted to the teacher' %>
+        <%= text_area_tag(:subcode,params[:subcode],placeholder:'Each subject code separated by "commas" eg. CS402,CS801',id:'subs',tabindex:'3',cols: 39, rows:2) %>
+    </div>
+    <div class="col-submit">
+      <%= label_tag :'Fields marked with * cannot be updated later!' %>
     </div>
     <div class="col-submit">
       <button class="submitbtn shake">Add</button>
     </div>
-  </form>
+  <% end %>
 </div>
 
-<!-- Update Teacher -->
+<!-- Update Teacher div -->
 <div class = "update-content">
-  <form>
+  <%= form_tag(controller: "admin", action: "update_teacher", :method=>"post") do %>
     <div class="col-submit">
-      <img class="cmn-t-scale" src="Icons/reg%20100p.png">
+    <%= image_tag('reg_100p.png',class:'cmn-t-scale')%>
     </div>
     <div class="col-2">
-      <label>
-        Name
-        <input placeholder="Name of the teacher?" id="updated_name" name="name" tabindex="1">
-      </label>
+      <%= label_tag :'Select which Department the teacher belongs to:' %>
+        <%= select_tag( :department,
+          "<option value='CE'>Dept. of Civil Engineering</option>
+          <option value='EC'>Dept. of Electronics and Communication Engineering</option>
+          <option value='EE'>Dept. of Electrical and Electronics Engineering</option>
+          <option value='CS'>Dept. of Computer Science and Engineering</option>
+          <option value='IT'>Dept. of Information Technology</option>
+          <option value='AS'>Dept. of Applied Science and Mathematics</option>
+          <option value='ME'>Dept. of Mechanical Engineering</option>".html_safe,id:'drop-font',tabindex:'2')%>
     </div>
     <div class="col-2">
-      <label>
-        Department
-        <select tabindex="2" class="drop-font">
-          <option value="CE">Dept. of Civil Engineering</option>
-          <option value="EC">Dept. of Electronics and Communication Engineering</option>
-          <option value="EE">Dept. of Electrical and Electronics Engineering</option>
-          <option value="CS">Dept. of Computer Science and Engineering</option>
-          <option value="IT">Dept. of Information Technology</option>
-          <option value="AS">Dept. of Applied Science</option>
-          <option value="ME">Dept. of Mechanical Engineering</option>
-        </select>
-      </label>
+      <%= label_tag :Name %>
+            <%= text_field_tag(:name,params[:name],placeholder:'Full name of the teacher to updated with',tabindex:'1') %>
     </div>
     <div class="col-3">
-      <label>
-        Subjects(code) allotted to the teacher
-        <textarea  cols = "39" placeholder="Each subject code separated by 'commas' eg. CS402,CS801" id="subs" name="name" tabindex="1"></textarea>
-      </label>
+      <%= label_tag :'Phone Number' %>
+          <%= text_field_tag(:phno,params[:phno],placeholder:'Please enter your Mobile number',tabindex:'4') %>
     </div>
     <div class="col-3">
-      <label>
-        Phone Number
-        <input placeholder="Phone number of the teacher" id="updated_phnum" name="phnum" tabindex="3">
-      </label>
-    </div>
-    <div class="col-3">
-      <label>
-        Email
-        <input type="email" placeholder="Enter a valid e-mail?" id="updated_email" name="email" tabindex="4">
-      </label>
-    </div>
-
-    <div class="col-3">
-      <label>
-        Skills
-        <input placeholder="List a few of your primary skills" id="updated_skills" name="skills" tabindex="6">
-      </label>
+      <%= label_tag :email %>
+          <%= email_field_tag(:email,params[:email],placeholder:'Enter your e-mail address',id:'email',tabindex:'5')%>
     </div>
     <div class="col-4">
-      <label>
-        Years of Experience
-        <input placeholder="How many years of experience?" id="updated_experience" name="experience" tabindex="7">
-      </label>
+      <%= label_tag :'Years of Experience' %>
+          <%= text_field_tag(:xp,params[:xp],placeholder:'How many years of experience?',id:'experience',tabindex:'6') %>
     </div>
+    <div class="col-3">
+      <%= label_tag :'Subjects(code) allotted to the teacher' %>
+        <%= text_area_tag(:subcode,params[:subcode],placeholder:'Each subject code separated by "commas" eg. CS402,CS801',id:'subs',tabindex:'3',cols: 39, rows:2) %>
+    </div>
+
     <div class="col-submit">
       <button class="submitbtn shake">Update</button>
     </div>
-  </form>
+  <% end %>
+</div>
+<!-- Delete Teacher -->
+<div class = "delete-content">
+  <%= form_tag('', :method=>"post") do %>
+    <div class="col-submit">
+      <%= image_tag('delete_100p.png',class:'cmn-t-scale')%>
+    </div>
+    <div class="col-2">
+      <%= label_tag :Name %>
+            <%= text_field_tag(:name,params[:name],placeholder:'Full name of the teacher to be deleted',tabindex:'1') %>
+    </div>
+    <div class="col-2">
+      <%= label_tag :Department %>
+        <%= select_tag( :department,
+          "<option value='CE'>Dept. of Civil Engineering</option>
+          <option value='EC'>Dept. of Electronics and Communication Engineering</option>
+          <option value='EE'>Dept. of Electrical and Electronics Engineering</option>
+          <option value='CS'>Dept. of Computer Science and Engineering</option>
+          <option value='IT'>Dept. of Information Technology</option>
+          <option value='AS'>Dept. of Applied Science and Mathematics</option>
+          <option value='ME'>Dept. of Mechanical Engineering</option>".html_safe,id:'drop-font',tabindex:'2')%>
+    </div>
+    <div class="col-3">
+      <%= label_tag :email %>
+          <%= email_field_tag(:email,params[:email],placeholder:'Enter your e-mail address',id:'email',tabindex:'5')%>
+    </div>
+    <div class="col-submit">
+      <button class="submitbtn shake">Delete</button>
+    </div>
+  <% end %>
 </div>
 </body>
 </html>

@@ -27,14 +27,14 @@
   <%= form_tag('', :method=>"post") do %>
 
       <div class="col-submit">
-        <%= image_tag('reg_100p.png',class:'cmn-t-scale')%>
-        </div>
-      <div class="col-2">
-        <%= label_tag :Name %>
-            <%= text_field_tag(:name,params[:name],placeholder:'What is your full name?',tabindex:'1') %>
+        <%= image_tag('reg_100p.png',class:'cmn-t-scale')-%>
       </div>
       <div class="col-2">
-        <%= label_tag :Semester %>
+        <%= label_tag :Name -%>
+            <%= text_field_tag(:name,params[:name],placeholder:'What is your full name?',tabindex:'1') -%>
+      </div>
+      <div class="col-2">
+        <%= label_tag :Semester -%>
             <%= select_tag( :semester,
                         "<option value='12'>I & II</option>
                         <option value='3'>III</option>
@@ -42,16 +42,15 @@
                         <option value='5'>V</option>
                         <option value='6'>VI</option>
                         <option value='7'>VII</option>
-                        <option value='8'>VII</option>".html_safe,id:'drop-font',tabindex:'2')%>
+                        <option value='8'>VII</option>".html_safe,id:'drop-font',tabindex:'2')-%>
       </div>
-
       <div class="col-3">
         <%= label_tag :University_Register_Number %>
-            <%= text_field_tag(:regnum,params[:regnum],placeholder:'Enter University Register number',id:'regnum',tabindex:'3') %>
+            <%= text_field_tag(:regnum,params[:regnum],placeholder:'Enter University Register number',id:'regnum',tabindex:'3') -%>
       </div>
       <div class="col-3">
         <%= label_tag :email %>
-            <%= email_field_tag(:email,params[:email],placeholder:'Enter your e-mail address',id:'email',tabindex:'4') %>
+            <%= email_field_tag(:email,params[:email],placeholder:'Enter your e-mail address',id:'email',tabindex:'4') -%>
       </div>
       <div class="col-3">
         <%= label_tag :branch %>
@@ -60,7 +59,7 @@
                         <option value='IT'>Information Technology</option>
                         <option value='CE'>Civil</option>
                         <option value='EE'>Electrical and Electronics</option>
-                        <option value='EC'>Electronics and Communication</option>".html_safe,id:'drop-font',tabindex:'5')%>
+                        <option value='EC'>Electronics and Communication</option>".html_safe,id:'drop-font',tabindex:'5')-%>
       </div>
 
     <div class="col-2">
@@ -75,7 +74,6 @@
     <div class="col-submit">
       <button class="submitbtn shake">Submit Form</button>
     </div>
-
   <% end %>
 </div>
 

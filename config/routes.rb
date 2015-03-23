@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'main/index'
   get 'main/login'
   post 'main/login'
+  post 'admin/add_teacher'
+  post 'admin/update_teacher'
   get 'main/register'
   post 'main/register'
   get 'main/aboutus'
