@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   post 'main/login'
   post 'admin/add_teacher'
   post 'admin/update_teacher'
+  post 'admin/perform_survey_evaluation'
   get 'main/register'
   post 'main/register'
-  get 'main/student'
+  get 'admin/student'
   get 'main/aboutus'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

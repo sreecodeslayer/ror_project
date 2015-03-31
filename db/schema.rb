@@ -14,14 +14,18 @@
 ActiveRecord::Schema.define(version: 20150329055426) do
 
   create_table "admins", force: :cascade do |t|
-    t.string   "name",       limit: 100,   default: "", null: false
-    t.integer  "xp",         limit: 4,     default: 0,  null: false
-    t.text     "subcode",    limit: 65535,              null: false
-    t.string   "branch",     limit: 4,     default: "", null: false
-    t.string   "email",      limit: 50,    default: "", null: false
-    t.string   "password",   limit: 10,    default: "", null: false
-    t.string   "phno",       limit: 11,    default: "", null: false
-    t.datetime "created_at"
+    t.string  "name",           limit: 100,   default: "", null: false
+    t.integer "xp",             limit: 4,     default: 0,  null: false
+    t.text    "subcode",        limit: 65535,              null: false
+    t.string  "branch",         limit: 4,     default: "", null: false
+    t.string  "email",          limit: 50,    default: "", null: false
+    t.string  "password",       limit: 10,    default: "", null: false
+    t.string  "phno",           limit: 11,    default: "", null: false
+    t.integer "excelent_count", limit: 4,     default: 0,  null: false
+    t.integer "good_count",     limit: 4,     default: 0,  null: false
+    t.integer "fair_count",     limit: 4,     default: 0,  null: false
+    t.integer "poor_count",     limit: 4,     default: 0,  null: false
+    t.integer "total",          limit: 4,     default: 0,  null: false
   end
 
   create_table "students", force: :cascade do |t|

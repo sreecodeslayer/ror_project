@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Take Survey| College Of Engineering Trikaripur</title>
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= favicon_link_tag 'login.png', type:'image/png' %>
+    <%= csrf_meta_tag %>
+    <link rel="shortcut icon" href="assests/login.png" type="image/x-icon" />
+    <script src="feedback_form.js"></script>
+    <style type="text/css">
+        form{
+            margin-top: 10px;
+            margin-left: 130px;
+            margin-right: 130px;
+            color: #ebebeb;
+        }
+        table{
+            margin:3%;
+            padding:3%;
+            table-layout: auto;
+            font-family: Helvetica, sans-serif;
+            font-weight: normal;
+            font-size:20px;
+            border-collapse: collapse;
+            border: 1px solid lightgrey;
+        }
+        table tr{
+            border-bottom: 1px solid lightgrey;
+        }
+        table tr td{
+            padding: 1%;
+            border-right: 1px solid lightgrey;
+            color: #2a7086;
+        }
+        table tr td table{
+            border: none;
+        }
+        table tr td table tr{
+            border: none;
+        }
+        table tr td table tr td{
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<div class = "headerWrapper">
+  <a href= <%= main_index_url %> ><%=  image_tag('CETkr_logo_and_text.png', align: 'left') -%></a>
+  <div>
+    <ul id="pushRight">
+      <li><a class="shake" href= <%= main_index_path %> >Home</a></li>
+      <li><a class="shake" href= <%= main_login_path %> >Login</a></li>
+      <li><a class="shake" href= <%= main_register_path %> >Register</a></li>
+      <li><a class="shake" href= <%= main_aboutus_path %> >Contact Us</a></li>
+    </ul>
+  </div>
+</div>
+<div class="mainContent">
+    <div class="survey-content">
+        <h1>Student Evaluation of Instruction</h1>
+        <div class="login-content">
+          <%= form_tag(controller: "admin", action: "perform_survey_evaluation", :method=>"post") do %>
+                <table>
+                    <tr> <!-- knowledge row -->
+                        <td>1. Knowledge of teacher in the subject</td>
+                        <td>
+                            <table border="0">
+                                <tr><td>Excellent</td></tr>
+                                <tr><td>Good</td></tr>
+                                <tr><td>Fair</td></tr>
+                                <tr><td>Poor</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table border="1">
+                                <tr> <!-- excellent row -->
+                                    <td>
+                                      <%= radio_button_tag "knw_sub1",5,false,{id:'knowledge_1_exce',class:"css-checkbox"} %>
+                                      <%= label_tag("knowledge_1_exce","", class:"css-label radGroup2") %>
+                                        <!--<input type="radio" name="knw_sub1" id="knowledge_1_exce" class="css-checkbox" value="5" />
+                                        <label for="knowledge_1_exce" class="css-label radGroup2"></label> -->
+                                    </td>
+                                    <td>
+                                      <%= radio_button_tag "knw_sub2",5,false,{id:'knowledge_2_exce',class:"css-checkbox"} %>
+                                      <%= label_tag("knowledge_2_exce","", class:"css-label radGroup2") %>
+                                        <!-- <input type="radio" name="knw_sub2" id="knowledge_2_exce" class="css-checkbox" value="5"/>
+                                        <label for="knowledge_2_exce" class="css-label radGroup2"></label> -->
+                                    </td>
+                                    <td>
+                                      <%= radio_button_tag "knw_sub3",5,false,{id:'knowledge_3_exce',class:"css-checkbox"} %>
+                                      <%= label_tag("knowledge_3_exce","", class:"css-label radGroup2") %>
+                                        <!-- <input type="radio" name="knw_sub3" id="knowledge_3_exce" class="css-checkbox" value="5"/>
+                                        <label for="knowledge_3_exce" class="css-label radGroup2"></label> -->
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub4",5,false,{id:'knowledge_4_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_4_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub5",5,false,{id:'knowledge_5_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_5_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub6",5,false,{id:'knowledge_6_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_6_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- good row -->
+                                    <td>
+                                        <%= radio_button_tag "knw_sub1",3,false,{id:'knowledge_1_good',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_1_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub2",3,false,{id:'knowledge_2_good',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_2_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub3",3,false,{id:'knowledge_3_good',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_3_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub4",3,false,{id:'knowledge_4_good',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_4_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub5",3,false,{id:'knowledge_5_good',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_5_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub6",3,false,{id:'knowledge_6_good',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_6_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- fair row -->
+                                    <td>
+                                        <%= radio_button_tag "knw_sub1",1,false,{id:'knowledge_1_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_1_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub2",1,false,{id:'knowledge_2_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_2_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub3",1,false,{id:'knowledge_3_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_3_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub4",1,false,{id:'knowledge_4_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_4_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub5",1,false,{id:'knowledge_5_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_5_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub6",1,false,{id:'knowledge_6_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_6_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!--poor row -->
+                                    <td>
+                                         <%= radio_button_tag "knw_sub1",0,false,{id:'knowledge_1_poor',class:"css-checkbox"} %>
+                                         <%= label_tag("knowledge_1_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub2",0,false,{id:'knowledge_2_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_2_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub3",0,false,{id:'knowledge_3_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_3_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub4",0,false,{id:'knowledge_4_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_4_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub5",0,false,{id:'knowledge_5_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_5_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "knw_sub6",0,false,{id:'knowledge_6_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("knowledge_6_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr> <!-- Clarity row -->
+                        <td>
+                            2. Clarity and understandability of teacher's explanations
+                        </td>
+                        <td>
+                            <table border="0">
+                                <tr><td>Excellent</td></tr>
+                                <tr><td>Good</td></tr>
+                                <tr><td>Fair</td></tr>
+                                <tr><td>Poor</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table border="1">
+                                <tr> <!-- excellent row -->
+                                    <td>
+                                        <%= radio_button_tag "cla_sub1",5,false,{id:'clarity_1_exce',class:"css-checkbox"} %>
+                                         <%= label_tag("clarity_1_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "cla_sub2",5,false,{id:'clarity_2_exce',class:"css-checkbox"} %>
+                                      <%= label_tag("clarity_2_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "cla_sub3",5,false,{id:'clarity_3_exce',class:"css-checkbox"} %>
+                                      <%= label_tag("clarity_3_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "cla_sub4",5,false,{id:'clarity_4_exce',class:"css-checkbox"} %>
+                                      <%= label_tag("clarity_4_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "cla_sub5",5,false,{id:'clarity_5_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_5_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "cla_sub6",5,false,{id:'clarity_6_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_6_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- Good row -->
+                                    <td>
+                                         <%= radio_button_tag "cla_sub1",3,false,{id:'clarity_1_good',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_1_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "cla_sub2",3,false,{id:'clarity_2_good',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_2_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "cla_sub3",3,false,{id:'clarity_3_good',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_3_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "cla_sub4",3,false,{id:'clarity_4_good',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_4_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "cla_sub5",3,false,{id:'clarity_5_good',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_5_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "cla_sub6",3,false,{id:'clarity_6_good',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_6_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+
+
+                                <tr><!-- Fair row -->
+                                    <td>
+                                         <%= radio_button_tag "cla_sub1",1,false,{id:'clarity_1_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_1_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "cla_sub2",1,false,{id:'clarity_2_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_2_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "cla_sub3",1,false,{id:'clarity_3_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_3_fair","", class:"css-label radGroup2") %>
+                                       
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "cla_sub4",1,false,{id:'clarity_4_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_4_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "cla_sub5",1,false,{id:'clarity_5_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_5_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "cla_sub6",1,false,{id:'clarity_6_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_6_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+                                <tr><!-- Poor row -->
+                                    <td>
+                                          <%= radio_button_tag "cla_sub1",0,false,{id:'clarity_1_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_1_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                          <%= radio_button_tag "cla_sub2",0,false,{id:'clarity_2_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_2_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                          <%= radio_button_tag "cla_sub3",0,false,{id:'clarity_3_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_3_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                          <%= radio_button_tag "cla_sub4",0,false,{id:'clarity_4_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_4_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                          <%= radio_button_tag "cla_sub5",0,false,{id:'clarity_5_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_5_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                          <%= radio_button_tag "cla_sub6",0,false,{id:'clarity_6_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("clarity_6_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr> <!-- Willingness to help row -->
+                        <td>
+                            3. Teacher's willingness to help
+                        </td>
+                        <td>
+                            <table border="0">
+                                <tr><td>Excellent</td></tr>
+                                <tr><td>Good</td></tr>
+                                <tr><td>Fair</td></tr>
+                                <tr><td>Poor</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table border="1">
+                                <tr> <!-- excellent row -->
+                                    <td>
+                                        <%= radio_button_tag "wil_sub1",5,false,{id:'will_1_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("will_1_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "wil_sub2",5,false,{id:'will_2_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("will_2_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "wil_sub3",5,false,{id:'will_3_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("will_3_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "wil_sub4",5,false,{id:'will_4_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("will_4_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "wil_sub5",5,false,{id:'will_5_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("will_5_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "wil_sub6",5,false,{id:'will_6_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("will_6_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- Good row -->
+                                    <td>
+                                         <%= radio_button_tag "wil_sub1",3,false,{id:'will_1_good',class:"css-checkbox"} %>
+                                        <%= label_tag("will_1_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "wil_sub2",3,false,{id:'will_2_good',class:"css-checkbox"} %>
+                                        <%= label_tag("will_2_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "wil_sub3",3,false,{id:'will_3_good',class:"css-checkbox"} %>
+                                        <%= label_tag("will_3_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "wil_sub4",3,false,{id:'will_4_good',class:"css-checkbox"} %>
+                                        <%= label_tag("will_4_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "wil_sub5",3,false,{id:'will_5_good',class:"css-checkbox"} %>
+                                        <%= label_tag("will_5_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "wil_sub6",3,false,{id:'will_6_good',class:"css-checkbox"} %>
+                                        <%= label_tag("will_6_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+
+
+                                <tr><!-- Fair row -->
+                                    <td>
+                                         <%= radio_button_tag "wil_sub1",1,false,{id:'will_1_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("will_1_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "wil_sub2",1,false,{id:'will_2_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("will_2_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "wil_sub3",1,false,{id:'will_3_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("will_3_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "wil_sub4",1,false,{id:'will_4_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("will_4_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "wil_sub5",1,false,{id:'will_5_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("will_5_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "wil_sub6",1,false,{id:'will_6_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("will_6_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+                                <tr><!-- Poor row -->
+                                    <td>
+                                         <%= radio_button_tag "wil_sub1",0,false,{id:'will_1_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("will_1_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "wil_sub2",0,false,{id:'will_2_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("will_2_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "wil_sub3",0,false,{id:'will_3_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("will_3_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "wil_sub4",0,false,{id:'will_4_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("will_4_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "wil_sub5",0,false,{id:'will_5_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("will_5_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "wil_sub6",0,false,{id:'will_6_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("will_6_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr> <!-- Classes not engaged row -->
+                        <td>
+                            4. Approximate percentage of classes not engaged by the teacher
+                        </td>
+                        <td>
+                            <table border="0">
+                                <tr><td>Less than 10%</td></tr>
+                                <tr><td>10% - 25%</td></tr>
+                                <tr><td>More than 25%</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table border="1">
+                                <tr> <!-- Less than 10% row -->
+                                    <td>
+                                         <%= radio_button_tag "class_sub1",5,false,{id:'class_1_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("class_1_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                          <%= radio_button_tag "class_sub2",5,false,{id:'class_2_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("class_2_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                          <%= radio_button_tag "class_sub3",5,false,{id:'class_3_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("class_3_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                          <%= radio_button_tag "class_sub4",5,false,{id:'class_4_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("class_4_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                          <%= radio_button_tag "class_sub5",5,false,{id:'class_5_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("class_5_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                          <%= radio_button_tag "class_sub6",5,false,{id:'class_6_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("class_6_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- 10% - 25% row -->
+                                    <td>
+                                          <%= radio_button_tag "class_sub1",3,false,{id:'class_1_good',class:"css-checkbox"} %>
+                                        <%= label_tag("class_1_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "class_sub2",3,false,{id:'class_2_good',class:"css-checkbox"} %>
+                                        <%= label_tag("class_2_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "class_sub3",3,false,{id:'class_3_good',class:"css-checkbox"} %>
+                                        <%= label_tag("class_3_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "class_sub4",3,false,{id:'class_4_good',class:"css-checkbox"} %>
+                                        <%= label_tag("class_4_good","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "class_sub5",3,false,{id:'class_5_good',class:"css-checkbox"} %>
+                                        <%= label_tag("class_5_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "class_sub6",3,false,{id:'class_6_good',class:"css-checkbox"} %>
+                                        <%= label_tag("class_6_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+
+
+                                <tr><!-- More that 25% row -->
+                                    <td>
+                                         <%= radio_button_tag "class_sub1",1,false,{id:'class_1_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("class_1_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "class_sub2",1,false,{id:'class_2_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("class_2_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "class_sub3",1,false,{id:'class_3_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("class_3_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "class_sub4",1,false,{id:'class_4_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("class_4_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "class_sub5",1,false,{id:'class_5_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("class_5_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "class_sub6",1,false,{id:'class_6_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("class_6_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr> <!-- Notes  and explanation row -->
+                        <td>
+                            5. Whether the teacher dictates notes only without explanation
+                        </td>
+                    <td>
+                        <table border="0">
+                            <tr>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td>Yes</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr> <!-- Notes no row -->
+                                <td>
+                                    <%= radio_button_tag "notes_sub1",3,false,{id:'notes_1_no',class:"css-checkbox"} %>
+                                    <%= label_tag("notes_1_no","", class:"css-label radGroup2") %>
+                                    
+                                </td>
+                                <td>
+                                    <%= radio_button_tag "notes_sub2",3,false,{id:'notes_2_no',class:"css-checkbox"} %>
+                                    <%= label_tag("notes_2_no","", class:"css-label radGroup2") %>
+                                    
+                                </td>
+                                <td>
+                                    <%= radio_button_tag "notes_sub3",3,false,{id:'notes_3_no',class:"css-checkbox"} %>
+                                    <%= label_tag("notes_3_no","", class:"css-label radGroup2") %>
+                                    
+                                </td>
+                                <td>
+                                    <%= radio_button_tag "notes_sub4",3,false,{id:'notes_4_no',class:"css-checkbox"} %>
+                                    <%= label_tag("notes_4_no","", class:"css-label radGroup2") %>
+                                    
+                                </td>
+                                <td>
+                                    <%= radio_button_tag "notes_sub5",3,false,{id:'notes_5_no',class:"css-checkbox"} %>
+                                    <%= label_tag("notes_5_no","", class:"css-label radGroup2") %>
+                                    
+                                </td>
+                                <td>
+                                    <%= radio_button_tag "notes_sub6",3,false,{id:'notes_6_no',class:"css-checkbox"} %>
+                                    <%= label_tag("notes_6_no","", class:"css-label radGroup2") %>
+                                    
+                                </td>
+                            </tr>
+                            <tr> <!-- Notes yes row -->
+                                <td>
+                                    <%= radio_button_tag "notes_sub1",0,false,{id:'notes_1_y',class:"css-checkbox"} %>
+                                    <%= label_tag("notes_1_y","", class:"css-label radGroup2") %>
+                                    
+                                </td>
+                                <td>
+                                     <%= radio_button_tag "notes_sub2",0,false,{id:'notes_2_y',class:"css-checkbox"} %>
+                                    <%= label_tag("notes_2_y","", class:"css-label radGroup2") %>
+                                    
+                                </td>
+                                <td>
+                                     <%= radio_button_tag "notes_sub3",0,false,{id:'notes_3_y',class:"css-checkbox"} %>
+                                    <%= label_tag("notes_3_y","", class:"css-label radGroup2") %>
+                                    
+                                </td>
+                                <td>
+                                     <%= radio_button_tag "notes_sub4",0,false,{id:'notes_4_y',class:"css-checkbox"} %>
+                                    <%= label_tag("notes_4_y","", class:"css-label radGroup2") %>
+                                    
+                                </td>
+                                <td>
+                                     <%= radio_button_tag "notes_sub5",0,false,{id:'notes_5_y',class:"css-checkbox"} %>
+                                    <%= label_tag("notes_5_y","", class:"css-label radGroup2") %>
+                                    
+                                </td>
+                                <td>
+                                    <%= radio_button_tag "notes_sub6",0,false,{id:'notes_6_y',class:"css-checkbox"} %>
+                                    <%= label_tag("notes_6_y","", class:"css-label radGroup2") %>
+                                  
+                            </tr>
+                        </table>
+                    </td>
+                    </tr>
+                    <tr> <!-- Lecture organize -->
+                        <td>
+                            6.Teachers ability to organize lectures
+                        </td>
+                        <td>
+                            <table border="0">
+                                <tr><td>Excellent</td></tr>
+                                <tr><td>Satisfactory</td></tr>
+                                <tr><td>Inadequate</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table border="1">
+                                <tr> <!-- excellent row -->
+                                    <td>
+                                        <%= radio_button_tag "lec_sub1",5,false,{id:'lec_1_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_1_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                       <%= radio_button_tag "lec_sub2",5,false,{id:'lec_2_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_2_exce","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "lec_sub3",5,false,{id:'lec_3_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_3_exce","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "lec_sub4",5,false,{id:'lec_4_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_4_exce","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "lec_sub5",5,false,{id:'lec_5_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_5_exce","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "lec_sub6",5,false,{id:'lec_6_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_6_exce","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- good row -->
+                                    <td>
+                                        <%= radio_button_tag "lec_sub1",3,false,{id:'lec_1_good',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_1_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "lec_sub2",3,false,{id:'lec_2_good',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_2_good","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "lec_sub3",3,false,{id:'lec_3_good',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_3_good","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "lec_sub4",3,false,{id:'lec_4_good',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_4_good","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                         <%= radio_button_tag "lec_sub5",3,false,{id:'lec_5_good',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_5_good","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "lec_sub6",3,false,{id:'lec_6_good',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_6_good","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- fair row -->
+                                    <td>
+                                        <%= radio_button_tag "lec_sub1",1,false,{id:'lec_1_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_1_fair","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "lec_sub2",1,false,{id:'lec_2_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_2_fair","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "lec_sub3",1,false,{id:'lec_3_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_3_fair","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "lec_sub4",1,false,{id:'lec_4_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_4_fair","", class:"css-label radGroup2") %>
+                                    <td>
+                                        <%= radio_button_tag "lec_sub5",1,false,{id:'lec_5_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_5_fair","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "lec_sub6",1,false,{id:'lec_6_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("lec_6_fair","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td></tr>
+                    <tr> <!-- speed of presentation row -->
+                        <td>
+                            7.Speed of presentation
+                        </td>
+                        <td>
+                            <table border="0">
+                                <tr><td>Just Right</td></tr>
+                                <tr><td>Too Fast</td></tr>
+                                <tr><td>Too Slow</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table border="1">
+                                <tr> <!-- justright row -->
+                                    <td>
+                                        <%= radio_button_tag "pre_sub1",5,false,{id:'pre_1_jr',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_1_jr","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "pre_sub2",5,false,{id:'pre_2_jr',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_2_jr","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "pre_sub3",5,false,{id:'pre_3_jr',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_3_jr","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "pre_sub4",5,false,{id:'pre_4_jr',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_4_jr","", class:"css-label radGroup2") %>
+                                    <td>
+                                        <%= radio_button_tag "pre_sub5",5,false,{id:'pre_5_jr',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_5_jr","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "pre_sub6",5,false,{id:'pre_6_jr',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_6_jr","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- toofast row -->
+                                    <td>
+                                        <%= radio_button_tag "pre_sub1",0,false,{id:'pre_1_tf',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_1_tf","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "pre_sub2",0,false,{id:'pre_2_tf',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_2_tf","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "pre_sub3",0,false,{id:'pre_3_tf',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_3_tf","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "pre_sub4",0,false,{id:'pre_4_tf',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_4_tf","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "pre_sub5",0,false,{id:'pre_5_tf',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_5_tf","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "pre_sub6",0,false,{id:'pre_6_tf',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_6_tf","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- tooslow row -->
+                                    <td>
+                                        <%= radio_button_tag "pre_sub1",0,false,{id:'pre_1_ts',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_1_ts","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "pre_sub2",0,false,{id:'pre_2_ts',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_2_ts","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "pre_sub3",0,false,{id:'pre_3_ts',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_3_ts","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "pre_sub4",0,false,{id:'pre_4_ts',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_4_ts","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                       <%= radio_button_tag "pre_sub5",0,false,{id:'pre_5_ts',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_5_ts","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "pre_sub6",0,false,{id:'pre_6_ts',class:"css-checkbox"} %>
+                                        <%= label_tag("pre_6_ts","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+                                </table>
+                        </td>
+                    </tr>
+                    <tr> <!-- Does the teacher encourage questioning row -->
+                        <td>
+                            8.Does the teacher encourage questioning
+                        </td>
+                        <td>
+                            <table border="0">
+                                <tr><td>Yes</td></tr>
+                                <tr><td>Sometimes</td></tr>
+                                <tr><td>No</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table border="1">
+                                <tr> <!-- yes row -->
+                                    <td>
+                                        <%= radio_button_tag "enc_sub1",5,false,{id:'enc_1_s',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_1_s","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "enc_sub2",5,false,{id:'enc_2_s',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_2_s","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                       <%= radio_button_tag "enc_sub3",5,false,{id:'enc_3_s',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_3_s","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "enc_sub4",5,false,{id:'enc_4_s',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_4_s","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "enc_sub5",5,false,{id:'enc_5_s',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_5_s","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "enc_sub6",5,false,{id:'enc_6_s',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_6_s","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- sometimes row -->
+                                    <td>
+                                        <%= radio_button_tag "enc_sub1",3,false,{id:'enc_1_smt',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_1_smt","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "enc_sub2",3,false,{id:'enc_2_smt',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_2_smt","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "enc_sub3",3,false,{id:'enc_3_smt',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_3_smt","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "enc_sub4",3,false,{id:'enc_4_smt',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_4_smt","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "enc_sub5",3,false,{id:'enc_5_smt',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_5_smt","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "enc_sub6",3,false,{id:'enc_6_smt',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_6_smt","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- No row -->
+                                    <td>
+                                        <%= radio_button_tag "enc_sub1",0,false,{id:'enc_1_no',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_1_no","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "enc_sub2",0,false,{id:'enc_2_no',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_2_no","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "enc_sub3",0,false,{id:'enc_3_no',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_3_no","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "enc_sub4",0,false,{id:'enc_4_no',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_4_no","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "enc_sub5",0,false,{id:'enc_5_no',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_5_no","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "enc_sub6",0,false,{id:'enc_6_no',class:"css-checkbox"} %>
+                                        <%= label_tag("enc_6_no","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td></tr>
+                    <tr> <!-- Behaviour of the teacher row -->
+                        <td>
+                            9.Behaviour of the teacher
+                        </td>
+                        <td>
+                            <table border="0">
+                                <tr><td>Pleasant</td></tr>
+                                <tr><td>Indifferent</td></tr>
+                                <tr><td>Unpleasant</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table border="1">
+                                <tr> <!-- pleasant row -->
+                                    <td>
+                                        <%= radio_button_tag "beh_sub1",5,false,{id:'beh_1_pl',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_1_pl","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub2",5,false,{id:'beh_2_pl',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_2_pl","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub3",5,false,{id:'beh_3_pl',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_3_pl","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub4",5,false,{id:'beh_4_pl',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_4_pl","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub5",5,false,{id:'beh_5_pl',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_5_pl","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub6",5,false,{id:'beh_6_pl',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_6_pl","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- indifferent row -->
+                                    <td>
+                                        <%= radio_button_tag "beh_sub1",0,false,{id:'beh_1_id',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_1_id","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub2",0,false,{id:'beh_2_id',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_2_id","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub3",0,false,{id:'beh_3_id',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_3_id","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub4",0,false,{id:'beh_4_id',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_4_id","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub5",0,false,{id:'beh_5_id',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_5_id","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub6",0,false,{id:'beh_6_id',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_6_id","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- unpleasant row -->
+                                    <td>
+                                        <%= radio_button_tag "beh_sub1",0,false,{id:'beh_1_up1',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_1_up1","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub2",0,false,{id:'beh_2_up2',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_2_up2","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub3",0,false,{id:'beh_3_up3',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_3_up3","", class:"css-label radGroup2") %>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub4",0,false,{id:'beh_4_up4',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_4_up4","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub5",0,false,{id:'beh_5_up5',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_5_up5","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "beh_sub6",0,false,{id:'beh_6_up6',class:"css-checkbox"} %>
+                                        <%= label_tag("beh_6_up6","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+
+
+
+                    </tr>
+
+                    <tr> <!-- Use of blackboard -->
+                        <td>
+                            10.Use of blackboard
+                        </td>
+                        <td>
+                            <table border="0">
+                                <tr><td>Effective</td></tr>
+                                <tr><td>Not Effective</td></tr>
+                                <tr><td>Rarely Uses</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table border="1">
+                                <tr> <!-- Effective row -->
+                                    <td>
+                                        <%= radio_button_tag "board_sub1",5,false,{id:'board_1_eff',class:"css-checkbox"} %>
+                                        <%= label_tag("board_1_eff","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub2",5,false,{id:'board_2_eff',class:"css-checkbox"} %>
+                                        <%= label_tag("board_2_eff","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub3",5,false,{id:'board_3_eff',class:"css-checkbox"} %>
+                                        <%= label_tag("board_3_eff","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub4",5,false,{id:'board_4_eff',class:"css-checkbox"} %>
+                                        <%= label_tag("board_4_eff","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub5",5,false,{id:'board_5_eff',class:"css-checkbox"} %>
+                                        <%= label_tag("board_5_eff","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub6",5,false,{id:'board_6_eff',class:"css-checkbox"} %>
+                                        <%= label_tag("board_6_eff","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- ineffective row -->
+                                    <td>
+                                        <%= radio_button_tag "board_sub1",1,false,{id:'board_1_ieff',class:"css-checkbox"} %>
+                                        <%= label_tag("board_1_ieff","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub2",1,false,{id:'board_2_ieff',class:"css-checkbox"} %>
+                                        <%= label_tag("board_2_ieff","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub3",1,false,{id:'board_3_ieff',class:"css-checkbox"} %>
+                                        <%= label_tag("board_3_ieff","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub4",1,false,{id:'board_4_ieff',class:"css-checkbox"} %>
+                                        <%= label_tag("board_4_ieff","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub5",1,false,{id:'board_5_ieff',class:"css-checkbox"} %>
+                                        <%= label_tag("board_5_ieff","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub6",1,false,{id:'board_6_ieff',class:"css-checkbox"} %>
+                                        <%= label_tag("board_6_ieff","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- rare row -->
+                                    <td>
+                                        <%= radio_button_tag "board_sub1",0,false,{id:'board_1_rr',class:"css-checkbox"} %>
+                                        <%= label_tag("board_1_rr","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub2",0,false,{id:'board_2_rr',class:"css-checkbox"} %>
+                                        <%= label_tag("board_2_rr","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub3",0,false,{id:'board_3_rr',class:"css-checkbox"} %>
+                                        <%= label_tag("board_3_rr","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub4",0,false,{id:'board_4_rr',class:"css-checkbox"} %>
+                                        <%= label_tag("board_4_rr","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub5",0,false,{id:'board_5_rr',class:"css-checkbox"} %>
+                                        <%= label_tag("board_5_rr","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "board_sub6",0,false,{id:'board_6_rr',class:"css-checkbox"} %>
+                                        <%= label_tag("board_6_rr","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+
+                    <tr> <!-- Sincerity of the teacher row -->
+                        <td>
+                            11.Sincerity of the teacher
+                        </td>
+                        <td>
+                            <table border="0">
+                                <tr><td>Sincere</td></tr>
+                                <tr><td>Not Sincere</td></tr>
+                                <tr><td>Unable to Judge</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table border="1">
+                                <tr>
+                                <tr> <!-- Sincere row -->
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub1",5,false,{id:'sinc_1_sin',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_1_sin","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub2",5,false,{id:'sinc_2_sin',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_2_sin","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub3",5,false,{id:'sinc_3_sin',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_3_sin","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub4",5,false,{id:'sinc_4_sin',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_4_sin","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub5",5,false,{id:'sinc_5_sin',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_5_sin","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub6",5,false,{id:'sinc_6_sin',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_6_sin","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- notsincere row -->
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub1",0,false,{id:'sinc_1_nsin',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_1_nsin","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub2",0,false,{id:'sinc_2_nsin',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_2_nsin","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub3",0,false,{id:'sinc_3_nsin',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_3_nsin","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub4",0,false,{id:'sinc_4_nsin',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_4_nsin","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub5",0,false,{id:'sinc_5_nsin',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_5_nsin","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub6",0,false,{id:'sinc_6_nsin',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_6_nsin","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr><!-- unabletojudge row -->
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub1",0,false,{id:'sinc_1_utj',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_1_utj","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub2",0,false,{id:'sinc_2_utj',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_2_utj","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub3",0,false,{id:'sinc_3_utj',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_3_utj","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub4",0,false,{id:'sinc_4_utj',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_4_utj","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub5",0,false,{id:'sinc_5_utj',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_5_utj","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "sinc_sub6",0,false,{id:'sinc_6_utj',class:"css-checkbox"} %>
+                                        <%= label_tag("sinc_6_utj","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr> <!-- Norms of valuation of tests and assignments -->
+                        <td>
+                            12.Norms of valuation of tests and assignments
+                        </td>
+                        <td>
+                            <table border="0">
+                                <tr><td>Too Strict</td></tr>
+                                <tr><td>Fair</td></tr>
+                                <tr><td>Too Liberal</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table border="1">
+                                <tr>
+                                <tr> <!-- Too Strict row -->
+                                    <td>
+                                        <%= radio_button_tag "norms_sub1",0,false,{id:'norms_1_ts',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_1_ts","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub2",0,false,{id:'norms_2_ts',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_2_ts","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub3",0,false,{id:'norms_3_ts',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_3_ts","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub4",0,false,{id:'norms_4_ts',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_4_ts","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub5",0,false,{id:'norms_5_ts',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_5_ts","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub6",0,false,{id:'norms_6_ts',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_6_ts","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- Fair row -->
+                                    <td>
+                                        <%= radio_button_tag "norms_sub1",5,false,{id:'norms_1_f',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_1_f","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub2",5,false,{id:'norms_2_f',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_2_f","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub3",5,false,{id:'norms_3_f',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_3_f","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub4",5,false,{id:'norms_4_f',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_4_f","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub5",5,false,{id:'norms_5_f',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_5_f","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub6",5,false,{id:'norms_6_f',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_6_f","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr><!-- Too Liberal row -->
+                                    <td>
+                                        <%= radio_button_tag "norms_sub1",0,false,{id:'norms_1_tl',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_1_tl","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub2",0,false,{id:'norms_2_tl',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_2_tl","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub3",0,false,{id:'norms_3_tl',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_3_tl","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub4",0,false,{id:'norms_4_tl',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_4_tl","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub5",0,false,{id:'norms_5_tl',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_5_tl","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "norms_sub6",0,false,{id:'norms_6_tl',class:"css-checkbox"} %>
+                                        <%= label_tag("norms_6_tl","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr> <!-- Regularity in valuing tests and assignments -->
+                        <td>
+                            13.Regularity in valuing tests and assignments
+                        </td>
+                        <td>
+                            <table border="0">
+                                <tr><td>Quite Punctual</td></tr>
+                                <tr><td>Not Punctual</td></tr>
+                                <tr><td>Does Not return at all</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table border="1">
+                                <tr>
+                                <tr> <!-- Quite Punctual row -->
+                                    <td>
+                                        <%= radio_button_tag "regu_sub1",5,false,{id:'regu_1_qp',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_1_qp","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub2",5,false,{id:'regu_2_qp',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_2_qp","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub3",5,false,{id:'regu_3_qp',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_3_qp","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub4",5,false,{id:'regu_4_qp',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_4_qp","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub5",5,false,{id:'regu_5_qp',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_5_qp","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub6",5,false,{id:'regu_6_qp',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_6_qp","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- Not Punctual row -->
+                                    <td>
+                                        <%= radio_button_tag "regu_sub1",1,false,{id:'regu_1_np',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_1_np","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub2",1,false,{id:'regu_2_np',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_2_np","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub3",1,false,{id:'regu_3_np',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_3_np","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub4",1,false,{id:'regu_4_np',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_4_np","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub5",1,false,{id:'regu_5_np',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_5_np","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub6",1,false,{id:'regu_6_np',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_6_np","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr><!-- Does not return at all row -->
+                                    <td>
+                                        <%= radio_button_tag "regu_sub1",0,false,{id:'regu_1_dnra',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_1_dnra","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub2",0,false,{id:'regu_2_dnra',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_2_dnra","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub3",0,false,{id:'regu_3_dnra',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_3_dnra","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub4",0,false,{id:'regu_4_dnra',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_4_dnra","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub5",0,false,{id:'regu_5_dnra',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_5_dnra","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "regu_sub6",0,false,{id:'regu_6_dnra',class:"css-checkbox"} %>
+                                        <%= label_tag("regu_6_dnra","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr> <!-- Overall teaching effectiveness of the teacher-->
+                        <td>
+                            14.Overall teaching effectiveness of the teacher
+                        </td>
+                        <td>
+                            <table border="0">
+                                <tr><td>Excellent</td></tr>
+                                <tr><td>Good</td></tr>
+                                <tr><td>Fair</td></tr>
+                                <tr><td>Poor</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table border="1">
+                                <tr>
+                                <tr> <!-- Excellent row -->
+                                    <td>
+                                        <%= radio_button_tag "ote_sub1",5,false,{id:'ote_1_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_1_exce","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub2",5,false,{id:'ote_2_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_2_exce","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub3",5,false,{id:'ote_3_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_3_exce","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub4",5,false,{id:'ote_4_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_4_exce","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub5",5,false,{id:'ote_5_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_5_exce","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub6",5,false,{id:'ote_6_exce',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_6_exce","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr> <!-- good row -->
+                                    <td>
+                                        <%= radio_button_tag "ote_sub1",3,false,{id:'ote_1_good',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_1_good","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub2",3,false,{id:'ote_2_good',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_2_good","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub3",3,false,{id:'ote_3_good',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_3_good","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub4",3,false,{id:'ote_4_good',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_4_good","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub5",3,false,{id:'ote_5_good',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_5_good","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub6",3,false,{id:'ote_6_good',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_6_good","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+                                <tr> <!-- fair row -->
+                                    <td>
+                                        <%= radio_button_tag "ote_sub1",1,false,{id:'ote_1_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_1_fair","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub2",1,false,{id:'ote_2_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_2_fair","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub3",1,false,{id:'ote_3_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_3_fair","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub4",1,false,{id:'ote_4_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_4_fair","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub5",1,false,{id:'ote_5_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_5_fair","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub6",1,false,{id:'ote_6_fair',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_6_fair","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+
+                                <tr><!-- poor row -->
+                                    <td>
+                                        <%= radio_button_tag "ote_sub1",0,false,{id:'ote_1_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_1_poor","", class:"css-label radGroup2") %>
+                                        
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub2",0,false,{id:'ote_2_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_2_poor","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub3",0,false,{id:'ote_3_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_3_poor","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub4",0,false,{id:'ote_4_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_4_poor","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub5",0,false,{id:'ote_5_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_5_poor","", class:"css-label radGroup2") %>
+                                    </td>
+                                    <td>
+                                        <%= radio_button_tag "ote_sub6",0,false,{id:'ote_6_poor',class:"css-checkbox"} %>
+                                        <%= label_tag("ote_6_poor","", class:"css-label radGroup2") %>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class = col-submit >
+                    <button class="loginbtn shake">Submit</button>
+                </div>
+          <% end %>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>
