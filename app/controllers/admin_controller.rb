@@ -34,6 +34,7 @@ class AdminController < ApplicationController
 
     def perform_survey_evaluation
       if request.post?
+        student=Student.find(session[:user_id].to_i)
         excellent_sub_1_count = 1
         excellent_sub_2_count = 1
         excellent_sub_3_count = 1
