@@ -1,20 +1,22 @@
 class MainController < ApplicationController
   def index
+    @student=Student.find(session[:user_id].to_i)
   end
-
   def login
     ip_username = params[:username]
     ip_password = params[:password]
     if request.post?
       if Student.find_by(name: ip_username,password: ip_password)
-        @student = Student.new
+        @student = Student.find_by(name: ip_username,password: ip_password)
         session[:user_id] = @student.id
+        session[:user_type]="Student"
         flash[:notice] = 'Logged in as '+ session[:user_id].to_s
         redirect_to main_index_path
       elsif Admin.find_by(name: ip_username,password: ip_password)
-        @admin = Admin.new
+        @admin = Admin.find_by(name: ip_username,password: ip_password)
         flash[:notice] = 'Logged in as Admin'
         session[:user_id] = @admin.id
+        session[:user_type]="Admin"
         redirect_to admin_admin_path    
       else
         flash[:notice] = "Login not successful!"
