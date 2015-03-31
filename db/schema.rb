@@ -11,31 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150329055426) do
 
   create_table "admins", force: :cascade do |t|
-    t.string   "name",       limit: 50,         null: false
-    t.string   "email",      limit: 20,         null: false
-    t.integer  "xp",         limit: 4,          null: false
-    t.string   "password",   limit: 10
-    t.string   "phno",       limit: 15,         null: false
-    t.string   "branch",     limit: 5,          null: false
-    t.text     "subcode",    limit: 4294967295, null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "name",       limit: 100,   default: "", null: false
+    t.integer  "xp",         limit: 4,     default: 0,  null: false
+    t.text     "subcode",    limit: 65535,              null: false
+    t.string   "branch",     limit: 4,     default: "", null: false
+    t.string   "email",      limit: 50,    default: "", null: false
+    t.string   "password",   limit: 10,    default: "", null: false
+    t.string   "phno",       limit: 11,    default: "", null: false
+    t.datetime "created_at"
   end
-
-  add_index "admins", ["email"], name: "email", unique: true, using: :btree
 
   create_table "students", force: :cascade do |t|
-    t.string   "name",       limit: 50, null: false
-    t.integer  "regnum",     limit: 4,  null: false
-    t.integer  "semester",   limit: 4,  null: false
-    t.string   "email",      limit: 50, null: false
-    t.string   "branch",     limit: 5,  null: false
-    t.string   "password",   limit: 10, null: false
-    t.datetime "updated_at",            null: false
+    t.string   "name",       limit: 100, default: "", null: false
+    t.integer  "regnum",     limit: 4,   default: 0,  null: false
+    t.string   "semester",   limit: 4,   default: "", null: false
+    t.string   "branch",     limit: 4,   default: "", null: false
+    t.string   "email",      limit: 50,  default: "", null: false
+    t.string   "password",   limit: 10,  default: "", null: false
+    t.datetime "created_at"
   end
-
-  add_index "students", ["email"], name: "email", unique: true, using: :btree
 
 end
