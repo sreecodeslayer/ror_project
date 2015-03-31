@@ -17,7 +17,7 @@ class MainController < ApplicationController
         flash[:notice] = 'Logged in as Admin'
         session[:user_id] = @admin.id
         session[:user_type]="Admin"
-        redirect_to admin_admin_path    
+        redirect_to admin_admin_path
       else
         flash[:notice] = "Login not successful!"
         render

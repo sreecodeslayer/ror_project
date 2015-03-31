@@ -23,12 +23,14 @@ class AdminController < ApplicationController
       	@teacher = Admin.where(["name = :n and branch = :d", { n: name, d: dept }]).first
       	@teacher.update(name:name,xp:new_exp,phno:new_phone,branch:dept,subcode:new_sub_code)
         flash[:notice] = "Update successful!"
+        redirect_to admin_admin_path
   		end
   	end
 
     def delete_teacher
       if request.post?
-
+        t_email = params[:email]
+        
       end
     end
 
@@ -62,6 +64,14 @@ class AdminController < ApplicationController
         poor_sub_4_count = 1
         poor_sub_5_count = 1
         poor_sub_6_count = 1
+
+
+        sub1_teacher_id = params[:sub1]
+        sub2_teacher_id = params[:sub2]
+        sub3_teacher_id = params[:sub3]
+        sub4_teacher_id = params[:sub4]
+        sub5_teacher_id = params[:sub5]
+        sub6_teacher_id = params[:sub6]
 
         params.each do|key,value|
           if value=='5' and (key == 'norms_sub1'or key=='knw_sub1'or key=='cla_sub1' or key=='wil_sub1' or key=='class_sub1' or key=='lec_sub1' or key=='pre_sub1' or key=='enc_sub1' or key=='board_sub1' or key=='beh_sub1' or key== 'sinc_sub1' or key=='regu_sub1' or key=='ote_sub1')
@@ -116,7 +126,6 @@ class AdminController < ApplicationController
           elsif value=='0' and (key == 'norms_sub6'or key=='knw_sub6'or key=='cla_sub6' or key=='wil_sub6' or key=='class_sub6' or key=='lec_sub6' or key=='pre_sub6' or key=='enc_sub6' or key=='board_sub6' or key=='beh_sub6' or key== 'sinc_sub6' or key=='regu_sub6' or key=='ote_sub6')
             poor_sub_6_count+=1
 
-
           end
         end
 
@@ -130,7 +139,40 @@ class AdminController < ApplicationController
         sub6_total = excellent_sub_6_count*5 + good_sub_6_count*3 + fair_sub_6_count*1
 
         #update the database with these totals and individual counts
+
+        @teacher1 = Admin.where(["id = :t_id",{t_id: sub1_teacher_id}]).first
+        @teacher1.update(excelent_count: excellent_sub_1_count,good_count: good_sub_1_count, fair_count: fair_sub_1_count, poor_count: poor_sub_1_count, total: sub1_total)
+
+        @teacher2 = Admin.where(["id = :t_id",{t_id: sub2_teacher_id}]).first
+        @teacher2.update(excelent_count: excellent_sub_2_count,good_count: good_sub_2_count, fair_count: fair_sub_2_count, poor_count: poor_sub_2_count, total: sub2_total)
+
+        @teacher3 = Admin.where(["id = :t_id",{t_id: sub3_teacher_id}]).first
+        @teacher3.update(excelent_count: excellent_sub_3_count,good_count: good_sub_3_count, fair_count: fair_sub_3_count, poor_count: poor_sub_3_count, total: sub3_total)
+
+        @teacher4 = Admin.where(["id = :t_id",{t_id: sub4_teacher_id}]).first
+        @teacher4.update(excelent_count: excellent_sub_4_count,good_count: good_sub_4_count, fair_count: fair_sub_4_count, poor_count: poor_sub_4_count, total: sub4_total)
+
+        @teacher5= Admin.where(["id = :t_id",{t_id: sub5_teacher_id}]).first
+        @teacher5.update(excelent_count: excellent_sub_5_count,good_count: good_sub_5_count, fair_count: fair_sub_5_count, poor_count: poor_sub_5_count, total: sub5_total)
+
+        @teacher6 = Admin.where(["id = :t_id",{t_id: sub6_teacher_id}]).first
+        @teacher6.update(excelent_count: excellent_sub_6_count,good_count: good_sub_6_count, fair_count: fair_sub_6_count, poor_count: poor_sub_6_count,total: sub6_total)
+
         redirect_to main_index_path
       end
     end
+
+  def logout
+    session.destroy
+    redirect_to main_index_path
+  end
+
+  def view_result
+    if request.post?
+      t_id = params[:teacher]
+      @result_t = Admin.find(session[:user_id])
+      resulting_name = @result_t.name
+    end
+    redirect_to admin_admin_path
+  end
 end

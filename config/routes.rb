@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   post 'admin/add_teacher'
   post 'admin/update_teacher'
   post 'admin/perform_survey_evaluation'
+  post 'admin/view_result'
+
+  get 'admin/perform_survey_evaluation'
+  get 'admin/view_result'
   get 'main/register'
   post 'main/register'
   get 'admin/student'

@@ -62,8 +62,32 @@
         <h1>Student Evaluation of Instruction</h1>
         <div class="login-content">
           <%= form_tag(controller: "admin", action: "perform_survey_evaluation", :method=>"post") do %>
-          <%= select_tag 'teacher', options_for_select(Admin.all.collect{ |u| [u.name, u.id] }) %>
+
                 <table>
+                  <tr>
+                    <td><%= label_tag ("Subject 1") -%></td>
+                    <td><%= select_tag :sub1, options_for_select(Admin.all.collect{ |u| [u.name, u.id] }) %></td>
+                  </tr>
+                  <tr>
+                    <td><%= label_tag ("Subject 2") -%></td>
+                    <td><%= select_tag :sub2, options_for_select(Admin.all.collect{ |u| [u.name, u.id] }) %></td>
+                  </tr>
+                  <tr>
+                    <td><%= label_tag ("Subject 3") -%></td>
+                    <td><%= select_tag :sub3, options_for_select(Admin.all.collect{ |u| [u.name, u.id] }) %></td>
+                  </tr>
+                  <tr>
+                    <td><%= label_tag ("Subject 4") -%></td>
+                    <td><%= select_tag :sub4, options_for_select(Admin.all.collect{ |u| [u.name, u.id] }) %></td>
+                  </tr>
+                  <tr>
+                    <td><%= label_tag ("Subject 5") -%></td>
+                    <td><%= select_tag :sub5, options_for_select(Admin.all.collect{ |u| [u.name, u.id] }) %></td>
+                  </tr>
+                  <tr>
+                    <td><%= label_tag ("Subject 6") -%></td>
+                    <td><%= select_tag :sub6, options_for_select(Admin.all.collect{ |u| [u.name, u.id] }) %></td>
+                  </tr>
                     <tr> <!-- knowledge row -->
                         <td>1. Knowledge of teacher in the subject</td>
                         <td>

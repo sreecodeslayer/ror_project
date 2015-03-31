@@ -17,18 +17,23 @@
     <ul id="pushRight">
       <li><a class="shake" href= <%= main_index_path %> >Home</a></li>
       <% if session[:user_id].nil? %>
-        <li><a class="shake" href= <%= main_login_path %> >Login</a></li>
-        <li><a class="shake" href= <%= main_register_path %> >Register</a></li>
+           <li><a class="shake" href= <%= main_login_path %> >Login</a></li>
+           <li><a class="shake" href= <%= main_register_path %> >Register</a></li>
       <% else %>
-        <li><a href="">Logout</a></li>
-        <li><a href="<%= admin_student_path %>">Survey form</a></li>
+           <li><a class="shake" href="<%= admin_logout_path %>">Logout</a></li>
+           <li><a class="shake" href="<%= admin_student_path %>">Survey form</a></li>
       <% end %>
       <li><a class="shake" href= <%= main_aboutus_path %> >Contact Us</a></li>
     </ul>
   </div>
 </div>
 <div class = "mainContent">
-    <%= @student.name %>
+     <% if session[:user_id].nil? %>
+     <% label_tag "","You are not Logged in, Please login", {id:"label-logged-in"}-%>
+     <% else %>
+     <% label_tag "","You are now logged in as "+ @student.name, {id:"label-logged-in"}-%>
+     <% end %>
+  <%=  image_tag('IMG_5634.JPG', align:'middle') %>
 </div>
 </body>
 </html>

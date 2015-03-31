@@ -11,6 +11,14 @@
   <link rel="shortcut icon" href="assets/login%20100p.png" type="image/x-icon" />
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script>
+      $(document).ready(function finalContent()
+         {
+              $(".register-content").hide();
+              $(".update-content").hide();
+              $(".delete-content").hide();
+              $(".result-content").hide();
+              $(".final-content").show();
+         });
       $(document).ready(function(){
           <!-- hide all div on load -->
           $(".register-content").hide();
@@ -37,14 +45,14 @@
               $(".register-content").hide(900);
               $(".update-content").hide(900);
               $(".result-content").hide(900);
-              $(".delete-content").slideDown();
+              $(".delete-content").slideDown(200);
           });
 
           $(".icon-result").click(function(){
               $(".register-content").hide(900);
               $(".update-content").hide(900);
               $(".delete-content").hide(900);
-              $(".result-content").slideDown();
+              $(".result-content").slideDown(200);
           });
       });
   </script>
@@ -56,11 +64,10 @@
     <ul id="pushRight">
       <li><a class="shake" href= <%= main_index_path %> >Home</a></li>
       <% if session[:user_id].nil? %>
-        <li><a class="shake" href= <%= main_login_path %> >Login</a></li>
-        <li><a class="shake" href= <%= main_register_path %> >Register</a></li>
-        <% else %>
-          <li><a href="">Logout</a></li>
-        <% end %>
+           <li><a class="shake" href= <%= main_login_path %> >Login</a></li>
+      <% else %>
+           <li><a class="shake" href="<%= admin_logout_path %>">Logout</a></li>
+      <% end %>
       <li><a class="shake" href= <%= main_aboutus_path %> >Contact Us</a></li>
     </ul>
   </div>
@@ -186,11 +193,37 @@
     </div>
     <div class="col-3">
       <%= label_tag :email %>
-          <%= email_field_tag(:email,params[:email],placeholder:'Enter your e-mail address',id:'email',tabindex:'5')%>
+          <%= email_field_tag(:email,params[:email],placeholder:'Enter the e-mail address of the teacher',id:'email',tabindex:'5')%>
     </div>
     <div class="col-submit">
       <button class="submitbtn shake">Delete</button>
     </div>
+  <% end %>
+</div>
+  <!-- Result of feedback -->
+  <div class="result-content">
+    <%= form_tag(controller: "admin", action: "view_result", :method=>"post") do %>
+         <div class="col-2">
+             <%= label_tag ("Please select the name of the teacher:") -%>
+         </div>
+         <div class="col-2">
+             <%= select_tag :teacher, options_for_select(Admin.all.collect{ |u| [u.name, u.id] } , class:"col-2") %>
+         </div>
+         <div class="col-submit">
+           <button class="submitbtn shake" onclick= finalContent()>View Result</button>
+         </div>
+    <% end %>
+  </div>
+</div>
+<div class = "final-content">
+  <%= form_tag(controller: "admin", action: "view_result", :method=>"post") do %>
+     <table>
+       <tr>
+         <td>
+               <% label_tag @result_t %>
+         </td>
+       </tr>
+     </table>
   <% end %>
 </div>
 </body>
