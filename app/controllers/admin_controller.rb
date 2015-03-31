@@ -129,6 +129,7 @@ class AdminController < ApplicationController
         sub6_total = excellent_sub_6_count*5 + good_sub_6_count*3 + fair_sub_6_count*1
 
         #update the database with these totals and individual counts
+        redirect_to main_index_path
       end
     end
 end
