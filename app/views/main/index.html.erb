@@ -19,6 +19,9 @@
       <% if session[:user_id].nil? %>
         <li><a class="shake" href= <%= main_login_path %> >Login</a></li>
         <li><a class="shake" href= <%= main_register_path %> >Register</a></li>
+      <% else %>
+        <li><a href="">Logout</a></li>
+        <li><a href="">Survey form</a></li>
       <% end %>
       <li><a class="shake" href= <%= main_aboutus_path %> >Contact Us</a></li>
     </ul>
